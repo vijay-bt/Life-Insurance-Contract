@@ -13,5 +13,6 @@ namespace LifeInsurance.API.Interfaces
         public Contract GetContract(string contractId);
         public string UpdateContract(string contractId, ContractDetails contractDetails);
         public string DeleteContract(Contract contract);
+        public IEnumerable<Contract> GetAllContracts();
     }
 }

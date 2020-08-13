@@ -104,6 +104,12 @@ namespace LifeInsurance.API.Services
             return contract;
         }
 
+        public IEnumerable<Contract> GetAllContracts()
+        {
+            IEnumerable<Contract> contracts = _lifeInsuranceRepository.GetAll();
+            return contracts;
+        }
+
         public string DeleteContract(Contract contract)
         {
             _lifeInsuranceRepository.Delete(contract);

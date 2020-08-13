@@ -12,11 +12,9 @@ namespace LifeInsurance.API.Controllers
     [ApiController]
     public class LifeInsuranceController : ControllerBase
     {
-        private readonly ILifeInsuranceRepository<Contract> _lifeInsuranceRepository;
         private readonly ILifeInsuranceService _lifeInsuranceService;
-        public LifeInsuranceController(ILifeInsuranceRepository<Contract> lifeInsuranceRepository, ILifeInsuranceService lifeInsuranceService)
+        public LifeInsuranceController(ILifeInsuranceService lifeInsuranceService)
         {
-            _lifeInsuranceRepository = lifeInsuranceRepository;
             _lifeInsuranceService = lifeInsuranceService;
         }
         
@@ -24,7 +22,7 @@ namespace LifeInsurance.API.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
-            IEnumerable<Contract> contracts = _lifeInsuranceRepository.GetAll();
+            IEnumerable<Contract> contracts = _lifeInsuranceService.GetAllContracts();
 
             if(contracts.Count()==0)
             {
